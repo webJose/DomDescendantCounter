@@ -7,9 +7,7 @@ body {
   padding: 16px;
 }
 
-#exportMarkdown,
-#copyTableMarkdown,
-#testCopyModal {
+.controls button {
   background: #00bfff;
   color: #222222;
 }
@@ -46,9 +44,7 @@ body {
   background: #cc4400;
 }
 
-#exportMarkdown:disabled,
-#copyTableMarkdown:disabled,
-#testCopyModal:disabled {
+.controls button:disabled {
   background: #444444;
   color: #888888;
   cursor: not-allowed;
