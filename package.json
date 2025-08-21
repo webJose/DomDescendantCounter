@@ -11,6 +11,7 @@
     "build": "vite build && pwsh ./post-bundle.ps1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^7.0.0",
     "@types/chrome": "^0.1.4",
     "typescript": "^5.9.2",
     "vite": "^6.3.5"
