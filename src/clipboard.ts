@@ -83,13 +83,18 @@ function copyUsingExecCommand(text: string): boolean {
 }
 
 // Show success feedback
-function showCopySuccess(copyBtn: HTMLButtonElement, originalText: string | null) {
-    copyBtn.textContent = 'Copied!';
-    copyBtn.style.background = '#00ff88';
+function showCopySuccess(copyBtn: HTMLButtonElement) {
+    const buttonContent = copyBtn.querySelector('.button-content') as HTMLElement;
+    const successMessage = copyBtn.querySelector('.success-message') as HTMLElement;
+    
+    // Hide the icon and show success message
+    buttonContent.style.display = 'none';
+    successMessage.style.display = 'inline';
     
     setTimeout(() => {
-        copyBtn.textContent = originalText;
-        copyBtn.style.background = '';
+        // Restore the icon and hide success message
+        buttonContent.style.display = 'inline';
+        successMessage.style.display = 'none';
     }, 1500);
 }
 
@@ -183,33 +188,32 @@ export async function copyTableToClipboard(data: DescendantData | null, generate
 
     const tableMarkdown = generateMarkdownTable(data);
     const copyBtn = document.getElementById('copyTableMarkdown') as HTMLButtonElement;
-    const originalText = copyBtn.textContent;
 
     try {
         // Method 1: Try using background script with better permissions
         const backgroundSuccess = await tryClipboardViaBackground(tableMarkdown);
         if (backgroundSuccess) {
-            showCopySuccess(copyBtn, originalText);
+            showCopySuccess(copyBtn);
             return;
         }
 
         // Method 2: Try using the inspected page's context for clipboard access
         const clipboardSuccess = await tryClipboardInInspectedPage(tableMarkdown);
         if (clipboardSuccess) {
-            showCopySuccess(copyBtn, originalText);
+            showCopySuccess(copyBtn);
             return;
         }
 
         // Method 3: Try modern Clipboard API in current context
         if (navigator.clipboard && window.isSecureContext) {
             await navigator.clipboard.writeText(tableMarkdown);
-            showCopySuccess(copyBtn, originalText);
+            showCopySuccess(copyBtn);
             return;
         }
         
         // Method 4: Fallback using execCommand (deprecated but more compatible)
         if (copyUsingExecCommand(tableMarkdown)) {
-            showCopySuccess(copyBtn, originalText);
+            showCopySuccess(copyBtn);
             return;
         }
         
