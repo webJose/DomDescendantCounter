@@ -1,0 +1,53 @@
+    /* Base styles (non-theme specific) */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 16px;
+}
+
+.controls {
+  margin: 12px 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+th,
+td {
+  padding: 8px 12px;
+}
+
+th {
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.total {
+  font-weight: bold;
+}
+
+#exportMarkdown,
+#copyTableMarkdown,
+#testCopyModal {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}

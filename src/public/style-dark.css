@@ -1,0 +1,81 @@
+/* Dark theme specific styles */
+body {
+  font-family: sans-serif;
+  background: #222222;
+  color: #eeeeee;
+  margin: 0;
+  padding: 16px;
+}
+
+#exportMarkdown,
+#copyTableMarkdown,
+#testCopyModal {
+  background: #00bfff;
+  color: #222222;
+}
+
+#copyTableMarkdown {
+  background: #00cc66;
+}
+
+#testCopyModal {
+  background: #ff6600;
+}
+
+#exportMarkdown:hover {
+  background: #0099cc;
+}
+
+#copyTableMarkdown:hover {
+  background: #00aa55;
+}
+
+#testCopyModal:hover {
+  background: #e55a00;
+}
+
+#exportMarkdown:active {
+  background: #0077aa;
+}
+
+#copyTableMarkdown:active {
+  background: #008844;
+}
+
+#testCopyModal:active {
+  background: #cc4400;
+}
+
+#exportMarkdown:disabled,
+#copyTableMarkdown:disabled,
+#testCopyModal:disabled {
+  background: #444444;
+  color: #888888;
+  cursor: not-allowed;
+}
+
+th,
+td {
+  border-bottom: 1px solid #444444;
+}
+
+th {
+  background: #333333;
+  color: #00bfff;
+}
+
+th:hover {
+  background: #444444;
+}
+
+th.sorted {
+  background: #444444;
+}
+
+th:active {
+  background: #555555;
+}
+
+.total {
+  color: #00bfff;
+}

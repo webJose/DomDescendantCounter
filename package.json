@@ -1,0 +1,18 @@
+{
+  "name": "dom-descendant-counter",
+  "version": "0.1.0",
+  "description": "Shows recursive descendant counts for selected HTML elements in DevTools.",
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build && pwsh ./post-bundle.ps1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.4",
+    "typescript": "^5.9.2",
+    "vite": "^6.3.5"
+  }
+}
