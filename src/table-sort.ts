@@ -91,18 +91,20 @@ function updateSortIndicators() {
         header.classList.remove('sorted');
         
         if (sortIndicator) {
-            if (column === currentSort.column) {
-                // Add sort indicator
-                const indicator = currentSort.direction === 'asc' ? ' ↑' : ' ↓';
-                sortIndicator.textContent = indicator;
-                header.classList.add('sorted');
-                
-                // Update ARIA attribute
-                header.setAttribute('aria-sort', currentSort.direction === 'asc' ? 'ascending' : 'descending');
-            } else {
-                // Clear sort indicator
-                sortIndicator.textContent = '';
-                header.setAttribute('aria-sort', 'none');
+            const iconElement = sortIndicator.querySelector('i');
+            if (iconElement) {
+                if (column === currentSort.column) {
+                    // Update icon class based on sort direction
+                    iconElement.className = currentSort.direction === 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down';
+                    header.classList.add('sorted');
+                    
+                    // Update ARIA attribute
+                    header.setAttribute('aria-sort', currentSort.direction === 'asc' ? 'ascending' : 'descending');
+                } else {
+                    // Reset to neutral sort icon
+                    iconElement.className = 'fas fa-sort';
+                    header.setAttribute('aria-sort', 'none');
+                }
             }
         }
     });

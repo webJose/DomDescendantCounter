@@ -44,6 +44,25 @@ th {
   transition: background-color 0.2s;
 }
 
+.sort-indicator {
+  margin-left: 8px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.sort-indicator i {
+  font-size: 0.8em;
+}
+
+th:hover .sort-indicator {
+  opacity: 1;
+}
+
+th[aria-sort="ascending"] .sort-indicator,
+th[aria-sort="descending"] .sort-indicator {
+  opacity: 1;
+}
+
 tr:last-child td {
   border-bottom: none;
 }
