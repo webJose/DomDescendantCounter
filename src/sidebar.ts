@@ -1,5 +1,21 @@
 // Main sidebar script - DOM Descendant Counter Extension
-import '@fortawesome/fontawesome-free/css/all.css';
+// FontAwesome SVG icons (tree-shakeable)
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import { 
+  faSyncAlt, 
+  faClipboard, 
+  faFileExport, 
+  faSort, 
+  faSortUp, 
+  faSortDown 
+} from '@fortawesome/free-solid-svg-icons';
+
+// Add only the icons we need to the library
+library.add(faSyncAlt, faClipboard, faFileExport, faSort, faSortUp, faSortDown);
+
+// Replace any existing <i> tags with SVG
+dom.watch();
+
 import { copyTableToClipboard, testCopyModal } from './clipboard.js';
 import { getData } from './data-collector.js';
 import { exportToMarkdown, generateMarkdownTable } from './markdown.js';

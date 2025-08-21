@@ -1,4 +1,5 @@
 // Table sorting functionality
+import { dom } from '@fortawesome/fontawesome-svg-core';
 import type { DescendantData } from './types.js';
 
 type SortColumn = 'name' | 'count' | 'visible';
@@ -91,23 +92,28 @@ function updateSortIndicators() {
         header.classList.remove('sorted');
         
         if (sortIndicator) {
-            const iconElement = sortIndicator.querySelector('i');
-            if (iconElement) {
-                if (column === currentSort.column) {
-                    // Update icon class based on sort direction
-                    iconElement.className = currentSort.direction === 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down';
-                    header.classList.add('sorted');
-                    
-                    // Update ARIA attribute
-                    header.setAttribute('aria-sort', currentSort.direction === 'asc' ? 'ascending' : 'descending');
-                } else {
-                    // Reset to neutral sort icon
-                    iconElement.className = 'fas fa-sort';
-                    header.setAttribute('aria-sort', 'none');
-                }
+            // Clear the current content and create new icon
+            sortIndicator.innerHTML = '';
+            
+            let iconName = 'sort';
+            if (column === currentSort.column) {
+                iconName = currentSort.direction === 'asc' ? 'sort-up' : 'sort-down';
+                header.classList.add('sorted');
+                header.setAttribute('aria-sort', currentSort.direction === 'asc' ? 'ascending' : 'descending');
+            } else {
+                header.setAttribute('aria-sort', 'none');
             }
+            
+            // Create new icon element
+            const iconElement = document.createElement('i');
+            iconElement.className = `fas fa-${iconName}`;
+            iconElement.setAttribute('aria-hidden', 'true');
+            sortIndicator.appendChild(iconElement);
         }
     });
+    
+    // Trigger FontAwesome to convert new icons to SVG
+    dom.i2svg({ node: table });
 }
 
 // Get column type from header index
