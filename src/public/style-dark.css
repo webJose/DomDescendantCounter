@@ -34,6 +34,19 @@ body {
   background-color: #008844 !important;
 }
 
+.btn-pink {
+  background-color: rgb(255, 105, 180) !important;
+  color: #222222 !important;
+}
+
+.btn-pink:hover:not(:disabled) {
+  background-color: rgb(240, 90, 165) !important;
+}
+
+.btn-pink:active:not(:disabled) {
+  background-color: rgb(225, 75, 150) !important;
+}
+
 .controls button:disabled {
   background: #444444 !important;
   color: #888888 !important;
@@ -65,4 +78,16 @@ th:active {
 
 .total {
   color: #00bfff;
+}
+
+/* Dark theme modal color overrides */
+:root {
+  --modal-bg: #2d2d2d !important;
+  --modal-text: #eeeeee !important;
+  --modal-border: #444444 !important;
+  --modal-overlay: rgba(0, 0, 0, 0.7) !important;
+  --modal-button-bg: #444444 !important;
+  --modal-button-hover: #555555 !important;
+  --modal-code-bg: #1e1e1e !important;
+  --modal-code-border: #555555 !important;
 }

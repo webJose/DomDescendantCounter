@@ -1,6 +1,6 @@
 // Clipboard operations module
 import type { DescendantData } from './types.js';
-import copyModalTemplate from './assets/copy-modal.html?raw';
+import { showCopyModal } from './modal.js';
 
 // Try clipboard via background script
 function tryClipboardViaBackground(text: string): Promise<boolean> {
@@ -100,83 +100,7 @@ function showCopySuccess(copyBtn: HTMLButtonElement) {
 
 // Final fallback - show modal with text to copy manually
 function showCopyFallback(text: string) {
-    // Create a temporary container to parse the HTML template
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = copyModalTemplate;
-    
-    // Extract and inject the styles into the document head
-    const styleElement = tempDiv.querySelector('style');
-    if (styleElement && !document.querySelector('#copy-modal-styles')) {
-        const style = document.createElement('style');
-        style.id = 'copy-modal-styles';
-        style.textContent = styleElement.textContent;
-        document.head.appendChild(style);
-    }
-    
-    // Extract the modal element (the body content of our template)
-    const modal = tempDiv.querySelector('.modal-overlay') as HTMLElement;
-    if (!modal) {
-        console.error('Modal template is malformed');
-        // Fallback to alert if template fails
-        alert(`Copy this text manually:\n\n${text}`);
-        return;
-    }
-    
-    // Find and populate the textarea with our text
-    const textArea = modal.querySelector('.modal-textarea') as HTMLTextAreaElement;
-    if (textArea) {
-        textArea.value = text;
-        // Auto-select the text when modal opens
-        setTimeout(() => {
-            textArea.focus();
-            textArea.select();
-        }, 100);
-    }
-    
-    // Setup Select All button functionality
-    const selectBtn = modal.querySelector('.modal-select-btn') as HTMLButtonElement;
-    if (selectBtn && textArea) {
-        selectBtn.onclick = () => {
-            textArea.focus();
-            textArea.select();
-        };
-    }
-    
-    // Setup close button functionality
-    const closeBtn = modal.querySelector('.modal-close-btn') as HTMLButtonElement;
-    if (closeBtn) {
-        closeBtn.onclick = () => {
-            document.body.removeChild(modal);
-            // Clean up styles when modal is closed (optional)
-            const styleEl = document.querySelector('#copy-modal-styles');
-            if (styleEl) styleEl.remove();
-        };
-    }
-    
-    // Close modal when clicking outside content area
-    modal.onclick = (e) => {
-        if (e.target === modal) {
-            document.body.removeChild(modal);
-            // Clean up styles when modal is closed (optional)
-            const styleEl = document.querySelector('#copy-modal-styles');
-            if (styleEl) styleEl.remove();
-        }
-    };
-    
-    // Close modal on Escape key
-    const handleKeydown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            document.body.removeChild(modal);
-            document.removeEventListener('keydown', handleKeydown);
-            // Clean up styles when modal is closed (optional)
-            const styleEl = document.querySelector('#copy-modal-styles');
-            if (styleEl) styleEl.remove();
-        }
-    };
-    document.addEventListener('keydown', handleKeydown);
-    
-    // Add to DOM
-    document.body.appendChild(modal);
+    showCopyModal(text);
 }
 
 // Copy table to clipboard with fallback methods
