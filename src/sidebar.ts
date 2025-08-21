@@ -1,17 +1,18 @@
 // Main sidebar script - DOM Descendant Counter Extension
 // FontAwesome SVG icons (tree-shakeable)
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
-import { 
-  faSyncAlt, 
-  faClipboard, 
-  faFileExport, 
-  faSort, 
-  faSortUp, 
-  faSortDown 
+import {
+    faSyncAlt,
+    faClipboard,
+    faFileExport,
+    faSort,
+    faSortUp,
+    faSortDown,
+    faQuestionCircle
 } from '@fortawesome/free-solid-svg-icons';
 
 // Add only the icons we need to the library
-library.add(faSyncAlt, faClipboard, faFileExport, faSort, faSortUp, faSortDown);
+library.add(faSyncAlt, faClipboard, faFileExport, faSort, faSortUp, faSortDown, faQuestionCircle);
 
 // Replace any existing <i> tags with SVG
 dom.watch();
@@ -19,6 +20,7 @@ dom.watch();
 import { copyTableToClipboard, testCopyModal } from './clipboard.js';
 import { getData } from './data-collector.js';
 import { exportToMarkdown, generateMarkdownTable } from './markdown.js';
+import { showHelpVisibleModal } from './modal.js';
 import type { DescendantData } from './types.js';
 import { renderTable, setTitle } from './ui.js';
 
@@ -56,10 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const exportBtn = document.getElementById('exportMarkdown')!;
     const copyBtn = document.getElementById('copyTableMarkdown')!;
     const testBtn = document.getElementById('testCopyModal')!;
+    const helpVisibleBtn = document.getElementById('helpVisible')!;
 
     recalculateBtn.addEventListener('click', () => handleSelection());
     exportBtn.addEventListener('click', () => exportToMarkdown(currentData));
     copyBtn.addEventListener('click', () => copyTableToClipboard(currentData, generateMarkdownTable));
+    helpVisibleBtn.addEventListener('click', () => showHelpVisibleModal());
     // Test button to directly show the modal with sample data
     testBtn.addEventListener('click', () => {
         const testData = currentData || {

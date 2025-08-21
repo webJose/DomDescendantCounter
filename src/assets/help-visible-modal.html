@@ -1,0 +1,18 @@
+<div class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
+    <div class="modal">
+        <h2 id="help-modal-title">What counts as "Visible"?</h2>
+        <p>An element is counted as <strong>visible</strong> if it meets all of the following criteria:</p>
+        <ul>
+            <li><strong>Display:</strong> The element's computed style <code>display</code> is not <code>none</code></li>
+            <li><strong>Visibility:</strong> The element's computed style <code>visibility</code> is <code>visible</code></li>
+            <li><strong>Opacity:</strong> The element's computed style <code>opacity</code> is not <code>0</code></li>
+            <li><strong>Dimensions:</strong> The element has non-zero width and height (via <code>getBoundingClientRect()</code>)</li>
+            <li><strong>Viewport intersection:</strong> The element's bounding rectangle intersects with the current viewport</li>
+        </ul>
+        <p><strong>Note:</strong> Elements that are positioned completely off-screen or outside the viewport will NOT be counted as visible, even if they meet the other criteria.</p>
+        <p>This definition helps distinguish between elements that are actually rendered and visible to users versus those that are hidden through CSS or positioned outside the visible area.</p>
+        <div class="modal-buttons">
+            <button type="button" class="modal-close-btn">Got it!</button>
+        </div>
+    </div>
+</div>
