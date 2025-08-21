@@ -7,47 +7,12 @@ body {
   padding: 16px;
 }
 
-.controls button {
-  background: #0078d4;
-  color: #ffffff;
-}
-
-#copyTableMarkdown {
-  background: #107c10;
-}
-
-#testCopyModal {
-  background: #d83b01;
-}
-
-#exportMarkdown:hover {
-  background: #106ebe;
-}
-
-#copyTableMarkdown:hover {
-  background: #0e6e0e;
-}
-
-#testCopyModal:hover {
-  background: #c23500;
-}
-
-#exportMarkdown:active {
-  background: #005a9e;
-}
-
-#copyTableMarkdown:active {
-  background: #0c5d0c;
-}
-
-#testCopyModal:active {
-  background: #a62d00;
-}
-
+/* Light theme uses the base button styles from style.css */
 .controls button:disabled {
-  background: #c7c7c7;
-  color: #6d6d6d;
+  background: #c7c7c7 !important;
+  color: #6d6d6d !important;
   cursor: not-allowed;
+  opacity: 1;
 }
 
 th,

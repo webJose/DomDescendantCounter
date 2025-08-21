@@ -7,47 +7,38 @@ body {
   padding: 16px;
 }
 
-.controls button {
-  background: #00bfff;
-  color: #222222;
+/* Dark theme button overrides */
+.btn-blue {
+  background-color: #00bfff !important;
+  color: #222222 !important;
 }
 
-#copyTableMarkdown {
-  background: #00cc66;
+.btn-blue:hover:not(:disabled) {
+  background-color: #0099cc !important;
 }
 
-#testCopyModal {
-  background: #ff6600;
+.btn-blue:active:not(:disabled) {
+  background-color: #0077aa !important;
 }
 
-#exportMarkdown:hover {
-  background: #0099cc;
+.btn-green {
+  background-color: #00cc66 !important;
+  color: #222222 !important;
 }
 
-#copyTableMarkdown:hover {
-  background: #00aa55;
+.btn-green:hover:not(:disabled) {
+  background-color: #00aa55 !important;
 }
 
-#testCopyModal:hover {
-  background: #e55a00;
-}
-
-#exportMarkdown:active {
-  background: #0077aa;
-}
-
-#copyTableMarkdown:active {
-  background: #008844;
-}
-
-#testCopyModal:active {
-  background: #cc4400;
+.btn-green:active:not(:disabled) {
+  background-color: #008844 !important;
 }
 
 .controls button:disabled {
-  background: #444444;
-  color: #888888;
+  background: #444444 !important;
+  color: #888888 !important;
   cursor: not-allowed;
+  opacity: 1;
 }
 
 th,

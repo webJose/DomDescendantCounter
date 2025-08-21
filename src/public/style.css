@@ -78,5 +78,111 @@ tr:last-child td {
   cursor: pointer;
   font-size: 12px;
   font-weight: 500;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.controls button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.controls button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.controls button:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.controls button:disabled {
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+/* Button color classes */
+.btn-blue {
+  background-color: #0078d4;
+  color: #ffffff;
+}
+
+.btn-blue:hover:not(:disabled) {
+  background-color: #106ebe;
+}
+
+.btn-blue:active:not(:disabled) {
+  background-color: #005a9e;
+}
+
+.btn-green {
+  background-color: #107c10;
+  color: #ffffff;
+}
+
+.btn-green:hover:not(:disabled) {
+  background-color: #0e6e0e;
+}
+
+.btn-green:active:not(:disabled) {
+  background-color: #0c5d0c;
+}
+
+.btn-red {
+  background-color: #d83b01;
+  color: #ffffff;
+}
+
+.btn-red:hover:not(:disabled) {
+  background-color: #c23500;
+}
+
+.btn-red:active:not(:disabled) {
+  background-color: #a62d00;
+}
+
+.btn-orange {
+  background-color: #ff6600;
+  color: #ffffff;
+}
+
+.btn-orange:hover:not(:disabled) {
+  background-color: #e55a00;
+}
+
+.btn-orange:active:not(:disabled) {
+  background-color: #cc4400;
+}
+
+.btn-purple {
+  background-color: #8764b8;
+  color: #ffffff;
+}
+
+.btn-purple:hover:not(:disabled) {
+  background-color: #7c5ba6;
+}
+
+.btn-purple:active:not(:disabled) {
+  background-color: #6b4d94;
+}
+
+.btn-cyan {
+  background-color: #00bfff;
+  color: #222222;
+}
+
+.btn-cyan:hover:not(:disabled) {
+  background-color: #0099cc;
+}
+
+.btn-cyan:active:not(:disabled) {
+  background-color: #0077aa;
 }
