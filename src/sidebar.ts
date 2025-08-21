@@ -1,15 +1,14 @@
 // Main sidebar script - DOM Descendant Counter Extension
-import type { DescendantData } from './types.js';
-import { getData } from './data-collector.js';
-import { setTitle, renderTable } from './ui.js';
-import { generateMarkdownTable, exportToMarkdown } from './markdown.js';
 import { copyTableToClipboard, testCopyModal } from './clipboard.js';
+import { getData } from './data-collector.js';
+import { exportToMarkdown, generateMarkdownTable } from './markdown.js';
+import type { DescendantData } from './types.js';
+import { renderTable, setTitle } from './ui.js';
 
 // Store current data for export/copy operations
 let currentData: DescendantData | null = null;
 
-// Handle selection changes in DevTools Elements panel
-chrome.devtools.panels.elements.onSelectionChanged.addListener(() => {
+function handleSelection() {
     chrome.devtools.inspectedWindow.eval<DescendantData | null>(
         `(${getData.toString()})()`,
         {},
@@ -18,14 +17,21 @@ chrome.devtools.panels.elements.onSelectionChanged.addListener(() => {
                 console.error(err);
                 return;
             }
+            currentData = res; // Store data for export/copy
             if (res) {
-                currentData = res; // Store data for export/copy
                 setTitle(res.currentNode);
                 renderTable(res.counts, res.total, res.visible);
             }
+            else {
+                setTitle(null);
+                renderTable(null);
+            }
         }
     );
-});
+}
+
+// Handle selection changes in DevTools Elements panel
+chrome.devtools.panels.elements.onSelectionChanged.addListener(handleSelection);
 
 // Setup export and copy buttons
 document.addEventListener('DOMContentLoaded', () => {
@@ -67,8 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
             renderTable(currentData.counts, currentData.total, currentData.visible);
         }
     });
-});
 
-// Initial state
-setTitle(null);
-renderTable(null);
+    handleSelection();
+});
