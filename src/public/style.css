@@ -135,19 +135,6 @@ tr:last-child td {
   background-color: #0c5d0c;
 }
 
-.btn-red {
-  background-color: #d83b01;
-  color: #ffffff;
-}
-
-.btn-red:hover:not(:disabled) {
-  background-color: #c23500;
-}
-
-.btn-red:active:not(:disabled) {
-  background-color: #a62d00;
-}
-
 .btn-orange {
   background-color: #ff6600;
   color: #ffffff;
@@ -159,19 +146,6 @@ tr:last-child td {
 
 .btn-orange:active:not(:disabled) {
   background-color: #cc4400;
-}
-
-.btn-purple {
-  background-color: #8764b8;
-  color: #ffffff;
-}
-
-.btn-purple:hover:not(:disabled) {
-  background-color: #7c5ba6;
-}
-
-.btn-purple:active:not(:disabled) {
-  background-color: #6b4d94;
 }
 
 .btn-cyan {
