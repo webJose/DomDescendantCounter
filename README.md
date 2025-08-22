@@ -46,6 +46,11 @@ The extension's primary goal is to **recursively count all children of the selec
   - Generation timestamp and extension attribution
 - **Automatic downloads** - Files saved with descriptive names including element info and timestamp
 
+### ❓ **Help and Documentation**
+- **Built-in help** - Click the help button to learn about visibility criteria
+- **Clear definitions** - Explains what counts as a "visible" descendant element
+- **Accessibility information** - Details about how elements are analyzed and counted
+
 ### 🎨 **Theme Support**
 - **Automatic theme detection** - Matches DevTools light/dark theme preferences
 - **Instant theme switching** - No reload required when changing DevTools theme
@@ -82,8 +87,9 @@ Follow [this link](docs/export-sample.md) to the sample markdown file.
 4. Look for the **"Descendant Count"** sidebar panel
 5. View the detailed breakdown of child elements
 6. Use the column headers to sort data by different criteria
-7. Click **"Copy Table as Markdown"** to copy data to clipboard
-8. Click **"Export to Markdown"** to download a complete report
+7. Click **"Copy List"** (clipboard icon) to copy data to clipboard
+8. Click **"Export to Markdown"** (export icon) to download a complete report
+9. Click the **"Help"** button (question mark icon) to learn about visibility criteria
 
 ## Technical Details
 
@@ -104,16 +110,18 @@ src/
 ├── table-sort.ts          # Sortable table functionality
 ├── clipboard.ts           # Copy-to-clipboard operations
 ├── markdown.ts            # Export functionality
+├── modal.ts               # Modal utility functions
 ├── ui.ts                  # UI rendering and management
-├── theme-loader.ts        # Theme detection and switching
 ├── background.ts          # Background script for privileged operations
 ├── types.ts               # TypeScript type definitions
+├── vite-env.d.ts          # Vite type declarations
 ├── public/                # Stylesheets for theming
-│   ├── style.css          # Base styles
-│   ├── style-dark.css     # Dark theme
-│   └── style-light.css    # Light theme
+│   ├── style.css          # Base styles and modal styles
+│   ├── style-dark.css     # Dark theme overrides
+│   └── style-light.css    # Light theme overrides
 └── assets/
-    └── copy-modal.html    # Fallback copy modal template
+    ├── copy-modal.html    # Copy modal template
+    └── help-visible-modal.html # Help modal template
 ```
 
 ## Development
