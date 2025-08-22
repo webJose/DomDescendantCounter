@@ -25,6 +25,15 @@ body {
   flex-wrap: wrap;
 }
 
+.controls .logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 4px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

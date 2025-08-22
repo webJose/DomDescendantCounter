@@ -1,4 +1,4 @@
-# DOM Descendant Counter
+# DOM Descendant Counter <img src="src/assets/icon48.svg" alt="DOM Descendant Counter Logo" width="48" height="48" align="top">
 
 A Chrome DevTools extension that provides detailed analysis of DOM element hierarchies by recursively counting children of selected nodes.
 
