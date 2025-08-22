@@ -10,6 +10,7 @@ import {
     faSortDown,
     faQuestionCircle
 } from '@fortawesome/free-solid-svg-icons';
+import logoPath from "./assets/icon48.svg";
 
 // Add only the icons we need to the library
 library.add(faSyncAlt, faClipboard, faFileExport, faSort, faSortUp, faSortDown, faQuestionCircle);
@@ -54,6 +55,8 @@ chrome.devtools.panels.elements.onSelectionChanged.addListener(handleSelection);
 
 // Setup export and copy buttons
 document.addEventListener('DOMContentLoaded', () => {
+    const logoImg = document.getElementById('logoImg') as HTMLImageElement;
+    logoImg.src = logoPath;
     const recalculateBtn = document.getElementById('recalculateCounts')!;
     const exportBtn = document.getElementById('exportMarkdown')!;
     const copyBtn = document.getElementById('copyTableMarkdown')!;
