@@ -11,9 +11,11 @@ $manifestJson.version = $packageJson.version
 # Copy manifest.json with synced version to dist
 $manifestJson | ConvertTo-Json -Depth 10 | Set-Content ./dist/manifest.json
 
-# Make png logos
-foreach ($svgFile in Get-ChildItem ./src/assets/*.svg) {
-    $pngFile = [System.IO.Path]::ChangeExtension($svgFile.Name, ".png")
-    # Convert SVG to PNG using ImageMagick
-    magick $svgFile.FullName $([System.IO.Path]::Combine("./dist/assets", $pngFile))
+# Make png logos if the manifest contains the "icons" property.
+if ($manifestJson.icons) {
+    foreach ($svgFile in Get-ChildItem ./src/assets/*.svg) {
+        $pngFile = [System.IO.Path]::ChangeExtension($svgFile.Name, ".png")
+        # Convert SVG to PNG using ImageMagick
+        magick $svgFile.FullName $([System.IO.Path]::Combine("./dist/assets", $pngFile))
+    }
 }
