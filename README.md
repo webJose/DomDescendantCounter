@@ -72,6 +72,9 @@ Follow [this link](docs/export-sample.md) to the sample markdown file.
 
 ## Installation
 
+> [!IMPORTANT]
+> The logos for this extension are made in SVG, but PNG is required.  The build process will assume [ImageMagick](https://imagemagick.org/) is installed and will attempt to produce the PNG's from the SVG's using it.  If you don't want to install this, eliminate the `icons` section from `src/manifest.json` before building.  If there are no icons in the manifest, the build won't attempt their creation.
+
 1. Clone or download this repository
 2. Run `npm install` to install dependencies
 3. Run `npm run build` to build the extension
