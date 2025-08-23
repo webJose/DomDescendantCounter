@@ -13,7 +13,7 @@ export function setTitle(nodeInfo: NodeInfo | null) {
     }
     let classStr = nodeInfo.classList && nodeInfo.classList.length ? nodeInfo.classList.join('.') : '';
     if (nodeInfo.id) {
-        titleEl.textContent = `#${nodeInfo.id}${classStr ? '.' + classStr : ''}`;
+        titleEl.textContent = `${nodeInfo.tag}#${nodeInfo.id}${classStr ? '.' + classStr : ''}`;
     } else {
         titleEl.textContent = nodeInfo.tag + (classStr ? '.' + classStr : '');
     }
