@@ -1,6 +1,6 @@
 {
   "name": "dom-descendant-counter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Shows recursive descendant counts for selected HTML elements in DevTools.",
   "license": "MIT",
   "author": "",
