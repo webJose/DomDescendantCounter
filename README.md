@@ -108,24 +108,24 @@ Follow [this link](docs/export-sample.md) to the sample markdown file.
 
 ```
 src/
-├── manifest.json          # Extension configuration
-├── devtools.html/ts       # DevTools page entry point  
-├── sidebar.html/ts        # Main UI panel
-├── data-collector.ts      # DOM analysis logic
-├── table-sort.ts          # Sortable table functionality
-├── clipboard.ts           # Copy-to-clipboard operations
-├── markdown.ts            # Export functionality
-├── modal.ts               # Modal utility functions
-├── ui.ts                  # UI rendering and management
-├── background.ts          # Background script for privileged operations
-├── types.ts               # TypeScript type definitions
-├── vite-env.d.ts          # Vite type declarations
-├── public/                # Stylesheets for theming
-│   ├── style.css          # Base styles and modal styles
-│   ├── style-dark.css     # Dark theme overrides
-│   └── style-light.css    # Light theme overrides
+├── manifest.json               # Extension configuration
+├── devtools.html/ts            # DevTools page entry point  
+├── sidebar.html/ts             # Main UI panel
+├── data-collector.ts           # DOM analysis logic
+├── table-sort.ts               # Sortable table functionality
+├── clipboard.ts                # Copy-to-clipboard operations
+├── markdown.ts                 # Export functionality
+├── modal.ts                    # Modal utility functions
+├── ui.ts                       # UI rendering and management
+├── background.ts               # Background script for privileged operations
+├── types.ts                    # TypeScript type definitions
+├── vite-env.d.ts               # Vite type declarations
+├── public/                     # Stylesheets for theming
+│   ├── style.css               # Base styles and modal styles
+│   ├── style-dark.css          # Dark theme overrides
+│   └── style-light.css         # Light theme overrides
 └── assets/
-    ├── copy-modal.html    # Copy modal template
+    ├── copy-modal.html         # Copy modal template
     └── help-visible-modal.html # Help modal template
 ```
 
