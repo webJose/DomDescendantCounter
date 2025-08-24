@@ -8,12 +8,15 @@ import {
     faSort,
     faSortUp,
     faSortDown,
-    faQuestionCircle
+    faQuestionCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import {
+    faGithub,
+} from '@fortawesome/free-brands-svg-icons';
 import logoPath from "./assets/icon48.svg";
 
 // Add only the icons we need to the library
-library.add(faSyncAlt, faClipboard, faFileExport, faSort, faSortUp, faSortDown, faQuestionCircle);
+library.add(faSyncAlt, faClipboard, faFileExport, faSort, faSortUp, faSortDown, faQuestionCircle, faGithub);
 
 // Replace any existing <i> tags with SVG
 dom.watch();

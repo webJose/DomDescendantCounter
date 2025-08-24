@@ -40,3 +40,30 @@ th:active {
 .total {
   color: #0078d4;
 }
+
+/* GitHub link styling for light theme */
+.controls a {
+  color: #333333 !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.controls a:hover {
+  color: #0078d4 !important;
+  transform: translateY(-1px);
+}
+
+.controls a:active {
+  transform: translateY(0);
+}
+
+.controls a:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+}

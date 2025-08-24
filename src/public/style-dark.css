@@ -80,6 +80,33 @@ th:active {
   color: #00bfff;
 }
 
+/* GitHub link styling for dark theme */
+.controls a {
+  color: #eeeeee !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.controls a:hover {
+  color: #00bfff !important;
+  transform: translateY(-1px);
+}
+
+.controls a:active {
+  transform: translateY(0);
+}
+
+.controls a:focus {
+  outline: 2px solid #00bfff;
+  outline-offset: 2px;
+}
+
 /* Dark theme modal color overrides */
 :root {
   --modal-bg: #2d2d2d !important;
